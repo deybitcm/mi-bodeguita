@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7a4b1e93-9f52-4d74-8ebe-b136ee4d7e87"
+      }
+    },
+    "owner": "deybit"
   }
 }
