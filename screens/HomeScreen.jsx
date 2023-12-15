@@ -7,8 +7,8 @@ const HomeScreen = () => {
     <Layout>
       <View style={styles.centerContent}>
         <Image
-          source={require("../assets/logo_entero.jpeg")}
-          style={{ width: "100%", height: 200, resizeMode: "contain" }}
+          source={require("../assets/logo-sin-fondo.png")}
+          style={{ width: "150%", height: 200 }}
         />
       </View>
     </Layout>

@@ -6,12 +6,21 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import Layout from "../components/Layout.js";
 
 const LoginScreen = () => {
   return (
     <Layout>
+      <Image
+        source={require("../assets/logo-sin-fondo.png")}
+        style={{
+          width: "70%",
+          height: 200,
+          alignSelf: "center",
+        }}
+      ></Image>
       <Text style={styles.title}>Login</Text>
       <TextInput style={styles.input} placeholder="Correo electrónico" />
       <TextInput

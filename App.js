@@ -35,7 +35,6 @@ export default function App() {
             headerTitleStyle: { color: '#f30c1e' },
           }}
         />
-        <Stack.Screen name="EmployeeFormScreen" component={EmployeeFormScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
