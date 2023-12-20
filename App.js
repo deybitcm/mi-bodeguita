@@ -25,7 +25,7 @@ export default function App() {
               <TouchableOpacity
                 onPress={() => navigation.navigate('LoginScreen')}
               >
-                <Text style={{color: 'red', marginRight: 10}}>Login</Text>
+                <Text style={{color: 'red', marginRight: 10}}>Login deybit</Text>
               </TouchableOpacity>
             ),
           })} />
