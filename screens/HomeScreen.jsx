@@ -4,14 +4,16 @@ import Layout from "../components/Layout.js";
 
 const HomeScreen = () => {
   return (
-    <Layout>
-      <View style={styles.centerContent}>
-        <Image
-          source={require("../assets/logo-sin-fondo.png")}
-          style={{ width: "150%", height: 200 }}
-        />
-      </View>
-    </Layout>
+    <Layout
+      children={
+        <View style={styles.centerContent}>
+          <Image
+            source={require("../assets/logo-sin-fondo.png")}
+            style={{ width: "150%", height: 200 }}
+          />
+        </View>
+      }
+    ></Layout>
   );
 };
 
