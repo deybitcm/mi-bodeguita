@@ -20,9 +20,12 @@ const LoginScreen = () => {
           height: 200,
           alignSelf: "center",
         }}
-      ></Image>
+      />
       <Text style={styles.title}>Login</Text>
-      <TextInput style={styles.input} placeholder="Correo electrónico" />
+      <TextInput
+        style={styles.input}
+        placeholder="Correo electrónico o celular"
+      />
       <TextInput
         style={styles.input}
         placeholder="Contraseña"
