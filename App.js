@@ -8,34 +8,30 @@ import LoginScreen from './screens/LoginScreen.jsx';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator();
+const Tabs = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="HomeScreen" 
-          component={HomeScreen} 
-          options={({navigation}) => ({
-            headerStyle: { backgroundColor: '#fef04f' },
-            headerTitleStyle: { color: '#f30c1e' },
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('LoginScreen')}
-              >
-                <Text style={{color: 'red', marginRight: 10}}>Login</Text>
-              </TouchableOpacity>
-            ),
-          })} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} 
+      <Tabs.Navigator>
+        <Tabs.Screen 
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             headerStyle: { backgroundColor: '#fef04f' },
             headerTitleStyle: { color: '#f30c1e' },
           }}
         />
-      </Stack.Navigator>
+        <Tabs.Screen name="LoginScreen" component={LoginScreen}
+          options={{
+            headerStyle: { backgroundColor: '#fef04f' },
+            headerTitleStyle: { color: '#f30c1e' },
+          }}
+        />
+      </Tabs.Navigator>
     </NavigationContainer>
   );
 }
