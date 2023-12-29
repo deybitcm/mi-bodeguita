@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 
 import EmployeeFormScreen from './screens/EmployeeFormScreen.jsx';
@@ -16,19 +16,39 @@ const Tabs = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tabs.Navigator>
+      <Tabs.Navigator screenOptions={
+        {
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: '#D3BDBA',
+            borderTopWidth: 0,
+            height: 50,
+            paddingVertical: 10,
+          },
+        }
+      }>
         <Tabs.Screen 
           name="HomeScreen"
           component={HomeScreen}
           options={{
-            headerStyle: { backgroundColor: '#fef04f' },
-            headerTitleStyle: { color: '#f30c1e' },
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={require('./assets/home_active.png')}
+                style={{ width: 20, height: 20 }}
+              />
+            ),
           }}
         />
-        <Tabs.Screen name="LoginScreen" component={LoginScreen}
+        <Tabs.Screen 
+          name="LoginScreen" 
+          component={LoginScreen}
           options={{
-            headerStyle: { backgroundColor: '#fef04f' },
-            headerTitleStyle: { color: '#f30c1e' },
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={require('./assets/user-interface.png')}
+                style={{ width: 20, height: 20 }}
+              />
+            ),
           }}
         />
       </Tabs.Navigator>
