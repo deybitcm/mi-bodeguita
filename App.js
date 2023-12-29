@@ -2,16 +2,24 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 
-import EmployeeFormScreen from './screens/EmployeeFormScreen.jsx';
-import HomeScreen from './screens/HomeScreen.jsx';
-import LoginScreen from './screens/LoginScreen.jsx';
-
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Stack = createNativeStackNavigator();
+//Pantallas
+import HomeScreen from './screens/HomeScreen.jsx';
+import LoginScreen from './screens/LoginScreen.jsx';
+import PersonListScreen from './screens/PersonListScreen.jsx';
+
 const Tabs = createBottomTabNavigator();
+
+const BalanceScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text>Balance Screen</Text>
+    </View>
+  );
+}
 
 export default function App() {
   return (
@@ -50,6 +58,14 @@ export default function App() {
               />
             ),
           }}
+        />
+        <Tabs.Screen
+          name="Balance"
+          component={BalanceScreen}
+        />
+        <Tabs.Screen
+          name="PersonList"
+          component={PersonListScreen}
         />
       </Tabs.Navigator>
     </NavigationContainer>

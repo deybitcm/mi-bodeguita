@@ -1,14 +1,14 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 
-const Employeelist = ({employees}) => {
+const PersonList = ({persons}) => {
   return (
     <FlatList
-        data={employees}
+        data={persons}
+        keyExtractor={(item) => item.id_persona.toString()}
         renderItem={({ item }) => <Text>{item.nombre}</Text>}
-        keyExtractor={(item) => item.id_empleado.toString()}
     />
   )
 }
 
-export default Employeelist
+export default PersonList
