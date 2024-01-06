@@ -4,13 +4,12 @@ import {
   View,
   Text,
   TextInput,
-  Button,
   TouchableOpacity,
   Image,
 } from "react-native";
-import Layout from "../components/Layout.js";
+import Layout from "../components/Layout.jsx";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     <Layout>
       <Image
@@ -31,7 +30,12 @@ const LoginScreen = () => {
         placeholder="Contraseña"
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+        style={styles.button}
+      >
         <Text
           style={{ color: "white", textAlign: "center", fontWeight: "bold" }}
         >

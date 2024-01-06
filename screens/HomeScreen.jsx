@@ -1,19 +1,23 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import Layout from "../components/Layout.js";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+// Pantallas
+import BalanceScreen from "./BalanceScreen.jsx";
+import DebtScreen from "./DebtScreen.jsx";
+import InventoryScreen from "./InventoryScreen.jsx";
+import ExploreScreen from "./ExploreScreen.jsx";
+
+const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
   return (
-    <Layout
-      children={
-        <View style={styles.centerContent}>
-          <Image
-            source={require("../assets/logo-sin-fondo.png")}
-            style={{ width: "150%", height: 200 }}
-          />
-        </View>
-      }
-    ></Layout>
+    <Tab.Navigator>
+      <Tab.Screen name="Balance" component={BalanceScreen} />
+      <Tab.Screen name="Deudas" component={DebtScreen} />
+      <Tab.Screen name="Inventario" component={InventoryScreen} />
+      <Tab.Screen name="Explorar" component={ExploreScreen} />
+    </Tab.Navigator>
   );
 };
 
@@ -26,17 +30,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 16,
-    paddingLeft: 8,
   },
 });
 

@@ -9,11 +9,6 @@ const PersonListScreen = () => {
 
   const loadList = async () => {
     const data = await getClients();
-
-    const test = [
-      { nombre: "test", id_persona: 1 },
-      { nombre: "test2", id_persona: 2 },
-    ];
     setClients(data);
   };
 

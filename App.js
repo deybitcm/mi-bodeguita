@@ -1,44 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
 
-// import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //Pantallas
-import HomeScreen from './screens/HomeScreen.jsx';
+import MainScreen from './screens/MainScreen.jsx';
 import LoginScreen from './screens/LoginScreen.jsx';
-import PersonListScreen from './screens/PersonListScreen.jsx';
+import RegisterScreen from './screens/RegisterScreen.jsx';
+import HomeScreen from './screens/HomeScreen.jsx';
 
-const Tabs = createBottomTabNavigator();
-
-const BalanceScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Balance Screen</Text>
-    </View>
-  );
-}
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>
-      <View>
-        <Text>INICIO</Text>
-      </View>
-      <TouchableOpacity 
-      style={{
-        backgroundColor: '#CBB4B1',
-        padding: 20, width: '90%',
-        borderRadius: 5,
-        flexDirection: 'row',
-        justifyContent: 'center'
-      }}>
-        <Text>Empezar</Text>
-        
-      </TouchableOpacity>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Main" component={MainScreen} options={{headerShown: false}} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
