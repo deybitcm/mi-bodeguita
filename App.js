@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import React from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -23,52 +23,22 @@ const BalanceScreen = () => {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tabs.Navigator screenOptions={
-        {
-          headerShown: false,
-          tabBarStyle: {
-            backgroundColor: '#D3BDBA',
-            borderTopWidth: 0,
-            height: 50,
-            paddingVertical: 10,
-          },
-        }
-      }>
-        <Tabs.Screen 
-          name="HomeScreen"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <Image
-                source={require('./assets/home_active.png')}
-                style={{ width: 20, height: 20 }}
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen 
-          name="LoginScreen" 
-          component={LoginScreen}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <Image
-                source={require('./assets/user-interface.png')}
-                style={{ width: 20, height: 20 }}
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="Balance"
-          component={BalanceScreen}
-        />
-        <Tabs.Screen
-          name="PersonList"
-          component={PersonListScreen}
-        />
-      </Tabs.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>
+      <View>
+        <Text>INICIO</Text>
+      </View>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: '#CBB4B1',
+        padding: 20, width: '90%',
+        borderRadius: 5,
+        flexDirection: 'row',
+        justifyContent: 'center'
+      }}>
+        <Text>Empezar</Text>
+        
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 

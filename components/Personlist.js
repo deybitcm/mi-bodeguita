@@ -1,10 +1,10 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 
-const PersonList = ({persons}) => {
+const PersonList = ({clients}) => {
   return (
     <FlatList
-        data={persons}
+        data={clients}
         keyExtractor={(item) => item.id_persona.toString()}
         renderItem={({ item }) => <Text>{item.nombre}</Text>}
     />
