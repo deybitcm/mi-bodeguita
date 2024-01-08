@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Pressable,
   Image,
 } from "react-native";
 import Layout from "../components/Layout.jsx";
@@ -30,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Contraseña"
         secureTextEntry
       />
-      <TouchableOpacity
+      <Pressable
         onPress={() => {
           navigation.navigate("Home");
         }}
@@ -41,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
         >
           INICIAR SESIÓN
         </Text>
-      </TouchableOpacity>
+      </Pressable>
     </Layout>
   );
 };

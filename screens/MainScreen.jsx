@@ -3,6 +3,8 @@ import {
   Text,
   View,
   TouchableOpacity,
+  StatusBar,
+  Pressable,
   Image,
   SafeAreaView,
 } from "react-native";
@@ -11,7 +13,8 @@ import React from "react";
 export default function MainScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.centerContent}>
+      <StatusBar backgroundColor="#8C8C8C" />
+      <View style={styles.image}>
         <Image
           source={require("../assets/logo-sin-fondo.png")}
           style={{
@@ -20,44 +23,27 @@ export default function MainScreen({ navigation }) {
           }}
         />
       </View>
-      <TouchableOpacity
+
+      <Pressable
         onPress={() => {
           navigation.navigate("Register");
         }}
-        style={{
-          backgroundColor: "#000",
-          padding: 15,
-          width: "90%",
-          borderRadius: 15,
-          flexDirection: "row",
-          justifyContent: "center",
-          marginBottom: 20,
-        }}
+        style={styles.botonRegistro}
       >
         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>
           Registrarse
         </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+      </Pressable>
+      <Pressable
         onPress={() => {
           navigation.navigate("Login");
         }}
-        style={{
-          backgroundColor: "#fff",
-          padding: 15,
-          width: "90%",
-          borderRadius: 15,
-          flexDirection: "row",
-          justifyContent: "center",
-          marginBottom: 20,
-          borderWidth: 1,
-          borderColor: "#000",
-        }}
+        style={styles.botonLogin}
       >
-        <Text style={{ fontSize: 18, color: "#000", fontWeight: "bold" }}>
-          Iniciar sesión
+        <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+          Ya tengo una cuenta
         </Text>
-      </TouchableOpacity>
+      </Pressable>
     </SafeAreaView>
   );
 }
@@ -68,10 +54,31 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: StatusBar.currentHeight,
   },
-  centerContent: {
+  image: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  botonRegistro: {
+    backgroundColor: "#000",
+    padding: 15,
+    width: "90%",
+    borderRadius: 15,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  botonLogin: {
+    backgroundColor: "#fff",
+    padding: 15,
+    width: "90%",
+    borderRadius: 15,
+    flexDirection: "row",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "#000",
+    marginBottom: 20,
   },
 });
