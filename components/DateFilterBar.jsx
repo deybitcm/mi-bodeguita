@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Button, Text, Pressable } from "react-native";
 import DateList from "./DateList";
+import DateFilterButton from "./DateFilterButton";
 
 const DateFilterBar = ({ onFilterChange }) => {
   const [selectedFilter, setSelectedFilter] = useState("day");
@@ -18,9 +19,7 @@ const DateFilterBar = ({ onFilterChange }) => {
       }}
     >
       <DateList />
-      <Pressable style={{ padding: 5 }}>
-        <Text>Filter</Text>
-      </Pressable>
+      <DateFilterButton />
     </View>
   );
 };

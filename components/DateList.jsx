@@ -18,35 +18,99 @@ const DateList = () => {
       "nov",
       "dic",
     ];
-    return months[monthNumber - 1];
+    return months[monthNumber];
   }
 
-  function generateLastNDates(count) {
-    let dates = [];
-    let date = new Date();
+  function monthNumberToNameComplete(monthNumber) {
+    const months = [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octobre",
+      "Noviembre",
+      "Diciembre",
+    ];
+    return months[monthNumber];
+  }
+
+  function generateLastNDays(count) {
+    const dates = [];
     for (let i = 0; i < count; i++) {
-      let dayOfWeek = date.getDay();
-      let startOfWeek = date.getDate() - dayOfWeek;
-      let today = date.getDate();
-      let month = date.getMonth() + 1;
-      let year = date.getFullYear();
-      let fecha = {
-        numeroDia: today.toString().length === 1 ? "0" + today : today,
-        nombreMes: monthNumberToName(month),
-        numeroAño: year,
-      };
-      dates.unshift(`${fecha.numeroDia} ${fecha.nombreMes}`);
-      console.log(fecha);
-      date.setDate(date.getDate() - 1);
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const month = monthNumberToName(date.getMonth());
+      const day = date.getDate();
+      const DiaActual = `${day} ${month}`;
+      dates.unshift(DiaActual);
     }
+
     return dates;
   }
-  const dates = generateLastNDates(6);
+
+  function generateLastNMonths(count) {
+    const dates = [];
+    for (let i = 0; i < count; i++) {
+      const date = new Date();
+      date.setMonth(date.getMonth() - i);
+      const month = monthNumberToNameComplete(date.getMonth());
+      const MesActual = `${month}`;
+      dates.unshift(MesActual);
+    }
+
+    return dates;
+  }
+
+  function generateLastNYears(count) {
+    const dates = [];
+    for (let i = 0; i < count; i++) {
+      const date = new Date();
+      date.setFullYear(date.getFullYear() - i);
+      const year = date.getFullYear();
+      const AñoActual = `${year}`;
+      dates.unshift(AñoActual);
+    }
+
+    return dates;
+  }
+
+  function generateLastNWeeks(count) {
+    const dates = [];
+    for (let i = 0; i < count; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - i * 7);
+
+      const inicio = new Date(date);
+      inicio.setDate(inicio.getDate() - inicio.getDay() + 1);
+      const day = inicio.getDate();
+      const month = monthNumberToName(date.getMonth());
+      const DiaInicio = `${day} ${month}`;
+
+      const fin = new Date(date);
+      fin.setDate(fin.getDate() - fin.getDay() + 7);
+      const day2 = fin.getDate();
+      const month2 = monthNumberToName(date.getMonth());
+      const DiaFin = `${day2} ${month2}`;
+
+      const SemanaActual = `${DiaInicio} - ${DiaFin}`;
+
+      dates.unshift(SemanaActual);
+    }
+
+    return dates;
+  }
+
+  const dates = generateLastNDays(10);
   const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <FlatList
-      style={{ paddingVertical: 5, backgroundColor: "#FFC300" }}
+      style={{ paddingVertical: 4.5, backgroundColor: "#FFC300" }}
       data={dates}
       horizontal={true}
       renderItem={({ item }) => (

@@ -9,40 +9,62 @@ import {
   Image,
 } from "react-native";
 import Layout from "../components/Layout.jsx";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LoginScreen = ({ navigation }) => {
   return (
     <Layout>
-      <Image
-        source={require("../assets/logo-sin-fondo.png")}
-        style={{
-          width: "70%",
-          height: 200,
-          alignSelf: "center",
-        }}
-      />
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Correo electrónico o celular"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Contraseña"
-        secureTextEntry
-      />
+      <Text style={styles.title}>¡Hola de nuevo!</Text>
       <Pressable
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate("Phone");
         }}
         style={styles.button}
       >
+        <MaterialCommunityIcons name="phone" size={24} color="black" />
         <Text
-          style={{ color: "white", textAlign: "center", fontWeight: "bold" }}
+          style={{
+            color: "#000",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: 17,
+            backgroundColor: "#FFC300",
+            padding: 10,
+          }}
         >
-          INICIAR SESIÓN
+          Ingresar con número de celular
         </Text>
       </Pressable>
+      <View
+        style={{
+          flexDirection: "row",
+          alignContent: "center",
+          justifyContent: "center",
+          marginTop: 20,
+        }}
+      >
+        <Text>¿No tienes una cuenta creada?</Text>
+        <Pressable
+          style={{
+            marginLeft: 5,
+          }}
+          onPress={() => {
+            navigation.navigate("Register");
+          }}
+        >
+          <Text
+            style={{
+              color: "#000",
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: 13,
+              borderBottomWidth: 1,
+            }}
+          >
+            Regístrate
+          </Text>
+        </Pressable>
+      </View>
     </Layout>
   );
 };
@@ -54,22 +76,26 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
+    textAlign: "center",
     marginBottom: 16,
-    color: "#f30c1e",
+    color: "#000",
     fontWeight: "bold",
   },
   input: {
-    height: 40,
+    height: 50,
     borderColor: "gray",
     borderWidth: 1,
-    marginBottom: 16,
-    paddingLeft: 8,
+    margin: 10,
+    paddingHorizontal: 8,
     backgroundColor: "white",
     borderRadius: 10,
   },
   button: {
-    backgroundColor: "#fe1b08",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFC300",
     borderRadius: 10,
     padding: 10,
   },
