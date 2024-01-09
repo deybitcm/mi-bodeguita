@@ -23,7 +23,137 @@ export default function MainScreen({ navigation }) {
           }}
         />
       </View>
-
+      <View // Botones de prueba para navegar entre pantallas
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          paddingHorizontal: 20,
+          flexGrow: 2,
+        }}
+      >
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a la tienda
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("Phone");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a Login 1er paso
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("Auth");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a Login 2do paso
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("Store");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a Login 3er paso
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("RegisterConfirm");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a Confirmar 2do paso
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: "#fff",
+            padding: 5,
+            width: "80%",
+            borderRadius: 15,
+            borderColor: "#000",
+            borderWidth: 1,
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate("RegisterStore");
+          }}
+        >
+          <Text style={{ fontSize: 18, color: "#000", fontWeight: "500" }}>
+            ir a Confirmar 3er paso
+          </Text>
+        </Pressable>
+      </View>
       <Pressable
         onPress={() => {
           navigation.navigate("Register");

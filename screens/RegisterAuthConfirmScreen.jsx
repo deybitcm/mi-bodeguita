@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 import { Bar } from "react-native-progress";
 
-export default function LoginAuthScreen({ navigation }) {
+export default function RegisterAuthConfirmScreen({ navigation }) {
   const [counter, setCount] = useState(30);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function LoginAuthScreen({ navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            navigation.navigate("Store");
+            navigation.navigate("RegisterStore");
           }}
           theme={{
             inputsContainerStyle: {

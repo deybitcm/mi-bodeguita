@@ -4,8 +4,11 @@ import DropdownComponent from "../components/DropdownStore";
 import Checkbox from "expo-checkbox";
 import { Bar } from "react-native-progress";
 
-export default function LoginStoreScreen({ navigation }) {
+export default function RegisterStoreScreen({ navigation }) {
   const [checked, setChecked] = useState(false);
+  BackHandler.addEventListener("hardwareBackPress", () => {
+    return true;
+  });
 
   return (
     <View style={{ flex: 1, justifyContent: "space-between" }}>
@@ -38,7 +41,7 @@ export default function LoginStoreScreen({ navigation }) {
             fontWeight: "bold",
           }}
         >
-          Escoge tu tienda
+          Cuéntanos sobre ti y tu negocio
         </Text>
         <Text
           style={{
@@ -48,7 +51,7 @@ export default function LoginStoreScreen({ navigation }) {
             marginBottom: 15,
           }}
         >
-          Selecciona la tienda a la cual acceder
+          Vamos a personalizar tu experiencia con esta información
         </Text>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
@@ -60,7 +63,17 @@ export default function LoginStoreScreen({ navigation }) {
               marginBottom: 10,
             }}
           >
-            Tiendas disponibles
+            Tu nombre
+          </Text>
+          <Text
+            style={{
+              fontWeight: "bold",
+              paddingStart: 5,
+              fontSize: 14,
+              color: "red",
+            }}
+          >
+            *
           </Text>
         </View>
         <View
@@ -70,25 +83,65 @@ export default function LoginStoreScreen({ navigation }) {
         >
           <DropdownComponent />
         </View>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text
+            style={{
+              fontWeight: "bold",
+              paddingStart: 28,
+              fontSize: 14,
+              marginTop: 20,
+              marginBottom: 10,
+            }}
+          >
+            Nombre de tu negocio
+          </Text>
+          <Text
+            style={{
+              fontWeight: "bold",
+              paddingStart: 5,
+              fontSize: 14,
+              color: "red",
+            }}
+          >
+            *
+          </Text>
+        </View>
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
-            paddingStart: 28,
-            marginTop: 10,
-            marginBottom: 10,
+            paddingHorizontal: 10,
           }}
         >
-          <Checkbox
+          <DropdownComponent />
+        </View>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text
             style={{
-              marginRight: 10,
-              width: 20,
+              fontWeight: "bold",
+              paddingStart: 28,
+              fontSize: 14,
+              marginTop: 20,
+              marginBottom: 10,
             }}
-            value={checked}
-            onValueChange={setChecked}
-            color={"#000"}
-          />
-          <Text style={{ fontSize: 14 }}>Usar esta tienda por defecto</Text>
+          >
+            Tipo de negocio
+          </Text>
+          <Text
+            style={{
+              fontWeight: "bold",
+              paddingStart: 5,
+              fontSize: 14,
+              color: "red",
+            }}
+          >
+            *
+          </Text>
+        </View>
+        <View
+          style={{
+            paddingHorizontal: 10,
+          }}
+        >
+          <DropdownComponent />
         </View>
       </View>
       <View

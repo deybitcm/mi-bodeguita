@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
           flexDirection: "row",
           alignContent: "center",
           justifyContent: "center",
-          marginTop: 20,
+          marginTop: 80,
         }}
       >
         <Text>¿No tienes una cuenta creada?</Text>

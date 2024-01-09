@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
+import { Bar } from "react-native-progress";
 
 export default function LoginAuthScreen({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -41,18 +42,27 @@ export default function LoginAuthScreen({ navigation }) {
         <Text
           style={{
             paddingStart: 28,
-            fontSize: 15,
+            fontSize: 13,
             marginTop: 20,
-            marginBottom: 20,
+            marginBottom: 3,
             fontWeight: "normal",
           }}
         >
           Paso 1 de 3
         </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            marginHorizontal: 28,
+            marginBottom: 20,
+          }}
+        >
+          <Bar progress={0.33} width={330} color="green" />
+        </View>
         <Text
           style={{
             paddingStart: 28,
-            fontSize: 15,
+            fontSize: 16,
             marginTop: 20,
             fontWeight: "bold",
           }}
@@ -62,7 +72,7 @@ export default function LoginAuthScreen({ navigation }) {
         <Text
           style={{
             paddingStart: 28,
-            fontSize: 13,
+            fontSize: 14,
             marginTop: 10,
             marginBottom: 15,
           }}
@@ -74,7 +84,7 @@ export default function LoginAuthScreen({ navigation }) {
             style={{
               fontWeight: "bold",
               paddingStart: 28,
-              fontSize: 13,
+              fontSize: 14,
               marginTop: 20,
               marginBottom: 10,
             }}
@@ -85,7 +95,7 @@ export default function LoginAuthScreen({ navigation }) {
             style={{
               fontWeight: "bold",
               paddingStart: 5,
-              fontSize: 13,
+              fontSize: 14,
               color: "red",
             }}
           >
