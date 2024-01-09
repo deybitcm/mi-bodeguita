@@ -11,6 +11,7 @@ import RegisterScreen from './screens/RegisterScreen.jsx';
 import HomeScreen from './screens/HomeScreen.jsx';
 import LoginAuthScreen from './screens/LoginAuthScreen.jsx';
 import LoginPhoneScreen from './screens/LoginPhoneScreen.jsx';
+import LoginStoreScreen from './screens/LoginStoreScreen.jsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="Auth" component={LoginAuthScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="Phone" component={LoginPhoneScreen} options={{headerTitle: ''}}/>
+        <Stack.Screen name="Store" component={LoginStoreScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>

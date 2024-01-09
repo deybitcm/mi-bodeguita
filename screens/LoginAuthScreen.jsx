@@ -43,7 +43,7 @@ export default function LoginAuthScreen({ navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            navigation.navigate("Home");
+            navigation.navigate("Store");
           }}
           theme={{
             inputsContainerStyle: {

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const API = "http://192.168.1.46:3000/api";
 
 export const getClients = async () => {

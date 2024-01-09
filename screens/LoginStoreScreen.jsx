@@ -1,40 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
 
-export default function LoginAuthScreen({ navigation }) {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [trigger, setTrigger] = useState(false);
-  const isFieldEmpty = useRef(false);
-  const isFieldFull = useRef(false);
-  const [showText, setShowText] = useState(false);
-
-  const handleInputChange = (value) => {
-    setPhoneNumber(value);
-
-    value.trim().length === 9
-      ? (isFieldFull.current = true)
-      : (isFieldFull.current = false);
-    value.trim() === ""
-      ? (isFieldEmpty.current = true)
-      : (isFieldEmpty.current = false);
-
-    setShowText(false);
-  };
-
-  const handleSubmit = () => {
-    phoneNumber.trim().length === 9
-      ? (isFieldFull.current = true)
-      : (isFieldFull.current = false);
-    phoneNumber.trim() === ""
-      ? (isFieldEmpty.current = true)
-      : (isFieldEmpty.current = false);
-    setTrigger(!trigger);
-
-    !isFieldFull.current && !isFieldEmpty.current
-      ? setShowText(true)
-      : setShowText(false);
-  };
-
+export default function LoginStoreScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: "space-between" }}>
       <View>
@@ -47,7 +14,7 @@ export default function LoginAuthScreen({ navigation }) {
             fontWeight: "normal",
           }}
         >
-          Paso 1 de 3
+          Paso 3 de 3
         </Text>
         <Text
           style={{
@@ -57,7 +24,7 @@ export default function LoginAuthScreen({ navigation }) {
             fontWeight: "bold",
           }}
         >
-          Protege tu cuenta con tu celular
+          Escoge tu tienda
         </Text>
         <Text
           style={{
@@ -67,7 +34,7 @@ export default function LoginAuthScreen({ navigation }) {
             marginBottom: 15,
           }}
         >
-          Ingresa de forma segura y fácil utilizando tu teléfono móvil
+          Selecciona la tienda a la cual acceder
         </Text>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
@@ -79,24 +46,14 @@ export default function LoginAuthScreen({ navigation }) {
               marginBottom: 10,
             }}
           >
-            Ingresa tu celular
-          </Text>
-          <Text
-            style={{
-              fontWeight: "bold",
-              paddingStart: 5,
-              fontSize: 13,
-              color: "red",
-            }}
-          >
-            *
+            Tiendas disponibles
           </Text>
         </View>
         <View
           style={{
             flexDirection: "row",
             alignContent: "center",
-            borderColor: isFieldEmpty.current ? "#FF0000" : "#000",
+            borderColor: "#000",
             borderWidth: 2,
             marginHorizontal: 25,
             borderRadius: 20,
@@ -122,38 +79,12 @@ export default function LoginAuthScreen({ navigation }) {
               width: 300,
               borderRadius: 10,
               paddingStart: 10,
-              color: isFieldEmpty.current ? "#FF0000" : "#000",
+              color: "#000",
             }}
             keyboardType="numeric"
             placeholder="Número de celular"
-            value={phoneNumber}
-            onChangeText={handleInputChange}
           />
         </View>
-        {isFieldEmpty.current && (
-          <Text
-            style={{
-              color: "red",
-              fontSize: 13,
-              paddingStart: 28,
-              paddingTop: 10,
-            }}
-          >
-            Este campo es obligatorio
-          </Text>
-        )}
-        {showText && (
-          <Text
-            style={{
-              color: "#DEA201",
-              fontSize: 13,
-              paddingStart: 28,
-              paddingTop: 10,
-            }}
-          >
-            El número de celular no es válido. Verificar la información
-          </Text>
-        )}
       </View>
       <View
         style={{
@@ -174,8 +105,7 @@ export default function LoginAuthScreen({ navigation }) {
           }}
           onPress={() => {
             handleSubmit();
-            if (!isFieldEmpty.current && isFieldFull.current)
-              navigation.navigate("Auth");
+            if (!isFieldEmpty) navigation.navigate("Home");
           }}
         >
           <Text
