@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
 import { Bar } from "react-native-progress";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { verifyinit } from "../api.js";
+
 export default function LoginAuthScreen({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [trigger, setTrigger] = useState(false);
@@ -20,6 +23,12 @@ export default function LoginAuthScreen({ navigation }) {
       : (isFieldEmpty.current = false);
 
     setShowText(false);
+  };
+
+  const verify = async (phoneNumber) => {
+    const response = await verifyinit(`+51${phoneNumber}`);
+    const isCorrect = response.status == "pending" ? true : false;
+    return isCorrect;
   };
 
   const handleSubmit = () => {
@@ -184,8 +193,10 @@ export default function LoginAuthScreen({ navigation }) {
           }}
           onPress={() => {
             handleSubmit();
-            if (!isFieldEmpty.current && isFieldFull.current) {
+            const isCorrect = verify(phoneNumber);
+            if (!isFieldEmpty.current && isFieldFull.current && isCorrect) {
               navigation.navigate("Auth", { phoneNumber });
+              console.log({ telefono: phoneNumber });
             }
           }}
         >

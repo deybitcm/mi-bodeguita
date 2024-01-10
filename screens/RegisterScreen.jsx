@@ -1,5 +1,7 @@
 import { View, Text, TextInput, Pressable } from "react-native";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+
+import AuthContext from "../components/AuthContext.jsx";
 
 export default function RegisterScreen({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState("");

@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, TextInput, Pressable, BackHandler } from "react-native";
+import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import DropdownComponent from "../components/DropdownStore";
-import Checkbox from "expo-checkbox";
 import { Bar } from "react-native-progress";
 
 export default function RegisterStoreScreen({ navigation }) {
-  const [checked, setChecked] = useState(false);
-  BackHandler.addEventListener("hardwareBackPress", () => {
-    return true;
-  });
+  const [nombre, setNombre] = useState("");
+  const [nombreNegocio, setNombreNegocio] = useState("");
 
   return (
     <View style={{ flex: 1, justifyContent: "space-between" }}>
@@ -81,7 +78,13 @@ export default function RegisterStoreScreen({ navigation }) {
             paddingHorizontal: 10,
           }}
         >
-          <DropdownComponent />
+          <TextInput
+            style={styles.textInput}
+            value={nombre}
+            onChangeText={setNombre}
+            cursorColor={"#000"}
+            underlineColorAndroid="transparent"
+          />
         </View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
@@ -111,7 +114,13 @@ export default function RegisterStoreScreen({ navigation }) {
             paddingHorizontal: 10,
           }}
         >
-          <DropdownComponent />
+          <TextInput
+            style={styles.textInput}
+            value={nombreNegocio}
+            onChangeText={setNombreNegocio}
+            cursorColor={"#000"}
+            underlineColorAndroid="transparent"
+          />
         </View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
@@ -181,3 +190,15 @@ export default function RegisterStoreScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  textInput: {
+    height: 50,
+    borderColor: "#000",
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginHorizontal: 16,
+    fontSize: 16,
+  },
+});

@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AuthProvider from './components/AuthContext.jsx';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -18,8 +20,22 @@ import LoginStoreScreen from './screens/LoginStoreScreen.jsx';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const restoreSession = async () => {
+      const savedUser = await AsyncStorage.getItem('user');
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
+    };
+
+    restoreSession();
+  }, []);
+
   return (
-    <NavigationContainer>
+    <AuthProvider value={{user, setUser}}>
+      <NavigationContainer>
       <Stack.Navigator screenOptions={
         {
           headerStyle: {
@@ -48,6 +64,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen}   options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
+    </AuthProvider>
   );
 }
 

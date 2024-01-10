@@ -29,9 +29,9 @@ const MovementsHeader = ({ filter, onTypeChange, navigation, route }) => {
 
 const styles = StyleSheet.create({
   header: {
+    flex: 1,
     paddingTop: 10,
     flexDirection: "row",
-    height: 60,
   },
   button: {
     flex: 1,

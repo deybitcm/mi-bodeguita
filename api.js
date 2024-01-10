@@ -41,3 +41,34 @@ export const getPurchases = async () => {
         console.log(error);
     }
 }
+
+export const verifyinit = async (phone) => {
+    try {
+        const query = await fetch(`${API}/usuarios/auth/verifyinit/${phone}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });        
+        return await query.json();
+    }
+    catch (error ) {
+        console.log({ruta: `${API}/usuarios/auth/verifyinit/${phone}`})
+        console.log({error});
+    }
+}
+
+export const verifycode = async (phone, code) => {
+    try {
+        const query = await fetch(`${API}/usuarios/auth/verifycode/${phone}/${code}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}

@@ -35,20 +35,24 @@ export default function BalanceScreen({ navigation }) {
           <BalanceSummary />
         </View>
         <View style={{ flex: 8 }}>
-          <MovementsHeader
-            filter={typeOfMovement}
-            onTypeChange={handleTypeChange}
-            navigation={navigation}
-          />
-          <Stack.Navigator
-            screenOptions={() => ({
-              headerShown: false,
-            })}
-            initialRouteName="Revenues"
-          >
-            <Stack.Screen name="Revenues" component={InnerRevenueScreen} />
-            <Stack.Screen name="Expenses" component={InnerExpenseScreen} />
-          </Stack.Navigator>
+          <View style={{ flex: 2 }}>
+            <MovementsHeader
+              filter={typeOfMovement}
+              onTypeChange={handleTypeChange}
+              navigation={navigation}
+            />
+          </View>
+          <View style={{ flex: 8 }}>
+            <Stack.Navigator
+              screenOptions={() => ({
+                headerShown: false,
+              })}
+              initialRouteName="Revenues"
+            >
+              <Stack.Screen name="Revenues" component={InnerRevenueScreen} />
+              <Stack.Screen name="Expenses" component={InnerExpenseScreen} />
+            </Stack.Navigator>
+          </View>
         </View>
       </View>
       <View style={{ flex: 1, paddingBottom: 20, paddingTop: 15 }}>

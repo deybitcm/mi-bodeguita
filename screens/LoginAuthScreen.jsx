@@ -1,10 +1,28 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { View, Text } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 import { Bar } from "react-native-progress";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { verifycode } from "../api.js";
+
 export default function LoginAuthScreen({ route, navigation }) {
   const [counter, setCount] = useState(30);
+  //const [otp, setOtp] = useState("");
+  const userPhoneNumber = route.params.phoneNumber;
+
+  //const [setUser] = useContext(AuthContext);
+  const loginUser = async (otp) => {
+    // funcion para obtener el hash del usuario
+    const response = await verifycode(`+51${userPhoneNumber}`, otp);
+
+    const user = { userPhoneNumber };
+
+    await AsyncStorage.setItem("user", JSON.stringify(user));
+    //setUser(user);
+
+    return response;
+  };
 
   useEffect(() => {
     if (counter > 0) {
@@ -55,7 +73,7 @@ export default function LoginAuthScreen({ route, navigation }) {
           marginBottom: 15,
         }}
       >
-        Te lo enviamos a tu whatsapp +51 {route.params.phoneNumber}
+        Te lo enviamos a tu whatsapp +51 {userPhoneNumber}
       </Text>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <OtpInput
@@ -64,7 +82,10 @@ export default function LoginAuthScreen({ route, navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            navigation.navigate("Store");
+            const isCorrect = loginUser(text);
+            if (isCorrect) {
+              navigation.navigate("Store");
+            }
           }}
           theme={{
             inputsContainerStyle: {
