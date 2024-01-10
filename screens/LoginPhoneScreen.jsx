@@ -184,8 +184,9 @@ export default function LoginAuthScreen({ navigation }) {
           }}
           onPress={() => {
             handleSubmit();
-            if (!isFieldEmpty.current && isFieldFull.current)
-              navigation.navigate("Auth");
+            if (!isFieldEmpty.current && isFieldFull.current) {
+              navigation.navigate("Auth", { phoneNumber });
+            }
           }}
         >
           <Text

@@ -92,10 +92,9 @@ export default function RegisterAuthConfirmScreen({ navigation }) {
             textAlign: "center",
             fontWeight: "bold",
             fontSize: 16,
-            borderBottomWidth: 1,
-            borderBottomColor: "#000",
             alignSelf: "center",
             width: "auto",
+            textDecorationLine: "underline",
           }}
         >
           {counter > 0

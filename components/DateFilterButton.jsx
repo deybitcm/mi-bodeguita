@@ -4,16 +4,22 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function DateFilterButton() {
   return (
-    <Pressable
+    <View
       style={{
-        paddingHorizontal: 15,
-        borderLeftColor: "#000",
-        borderLeftWidth: 1,
         backgroundColor: "#FFC300",
-        paddingVertical: 11,
+        height: 50,
+        justifyContent: "center",
       }}
     >
-      <Ionicons name="calendar-outline" size={24} color="black" />
-    </Pressable>
+      <Pressable
+        style={{
+          paddingHorizontal: 15,
+          borderLeftColor: "#000",
+          borderLeftWidth: 1,
+        }}
+      >
+        <Ionicons name="calendar-outline" size={24} color="black" />
+      </Pressable>
+    </View>
   );
 }

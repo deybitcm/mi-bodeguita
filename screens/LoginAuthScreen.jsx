@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 import { Bar } from "react-native-progress";
 
-export default function LoginAuthScreen({ navigation }) {
+export default function LoginAuthScreen({ route, navigation }) {
   const [counter, setCount] = useState(30);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function LoginAuthScreen({ navigation }) {
           marginBottom: 15,
         }}
       >
-        Te lo enviamos a tu whatsapp +51987654321
+        Te lo enviamos a tu whatsapp +51 {route.params.phoneNumber}
       </Text>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <OtpInput

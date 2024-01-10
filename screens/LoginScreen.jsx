@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "bold",
               fontSize: 13,
-              borderBottomWidth: 1,
+              textDecorationLine: "underline",
             }}
           >
             Regístrate

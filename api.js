@@ -21,3 +21,23 @@ export const getProducts = async () => {
         console.log(error);
     }
 }
+
+export const getSales = async () => {
+    try {
+        const query = await fetch(`${API}/movimientos/ventas`);
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+export const getPurchases = async () => {
+    try {
+        const query = await fetch(`${API}/movimientos/compras`);
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}

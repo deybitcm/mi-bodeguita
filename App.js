@@ -35,7 +35,6 @@ export default function App() {
           <Stack.Screen name="RegisterConfirm" component={RegisterAuthConfirmScreen} options={{headerTitle: ''}}/>
           <Stack.Screen name="RegisterStore" component={RegisterStoreScreen} options={{headerTitle: ''}}/>
         </Stack.Group>
-        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
         <Stack.Group>
           <Stack.Screen name="Login" component={LoginScreen} options={{headerTitle: ''}}/>
           <Stack.Screen name="Phone" component={LoginPhoneScreen} options={{headerTitle: ''}}/>
@@ -46,6 +45,7 @@ export default function App() {
             })}
           />
         </Stack.Group>
+        <Stack.Screen name="Home" component={HomeScreen}  />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -39,78 +39,69 @@ const DateList = () => {
     return months[monthNumber];
   }
 
-  function generateLastNDays(count) {
+  function generateLastNIntervals(count, interval) {
     const dates = [];
     for (let i = 0; i < count; i++) {
       const date = new Date();
-      date.setDate(date.getDate() - i);
+      interval === "days" && date.setDate(date.getDate() - i);
+      interval === "months" && date.setMonth(date.getMonth() - i);
+      interval === "years" && date.setFullYear(date.getFullYear() - i);
+      interval === "weeks" && date.setDate(date.getDate() - i * 7);
+
       const month = monthNumberToName(date.getMonth());
       const day = date.getDate();
-      const DiaActual = `${day} ${month}`;
-      dates.unshift(DiaActual);
-    }
-
-    return dates;
-  }
-
-  function generateLastNMonths(count) {
-    const dates = [];
-    for (let i = 0; i < count; i++) {
-      const date = new Date();
-      date.setMonth(date.getMonth() - i);
-      const month = monthNumberToNameComplete(date.getMonth());
-      const MesActual = `${month}`;
-      dates.unshift(MesActual);
-    }
-
-    return dates;
-  }
-
-  function generateLastNYears(count) {
-    const dates = [];
-    for (let i = 0; i < count; i++) {
-      const date = new Date();
-      date.setFullYear(date.getFullYear() - i);
       const year = date.getFullYear();
-      const AñoActual = `${year}`;
-      dates.unshift(AñoActual);
-    }
-
-    return dates;
-  }
-
-  function generateLastNWeeks(count) {
-    const dates = [];
-    for (let i = 0; i < count; i++) {
-      const date = new Date();
-      date.setDate(date.getDate() - i * 7);
 
       const inicio = new Date(date);
       inicio.setDate(inicio.getDate() - inicio.getDay() + 1);
-      const day = inicio.getDate();
-      const month = monthNumberToName(date.getMonth());
-      const DiaInicio = `${day} ${month}`;
+      const firstDayOfWeek = inicio.getDate();
+      const monthOfFirstDay = monthNumberToName(inicio.getMonth());
+      const DiaInicio = `${firstDayOfWeek} ${monthOfFirstDay}`;
 
       const fin = new Date(date);
       fin.setDate(fin.getDate() - fin.getDay() + 7);
-      const day2 = fin.getDate();
-      const month2 = monthNumberToName(date.getMonth());
-      const DiaFin = `${day2} ${month2}`;
+      const lastDayOfWeek = fin.getDate();
+      const monthOfLastDay = monthNumberToName(fin.getMonth());
+      const DiaFin = `${lastDayOfWeek} ${monthOfLastDay}`;
 
-      const SemanaActual = `${DiaInicio} - ${DiaFin}`;
+      const intervaloActual =
+        interval === "days"
+          ? `${day} ${month}`
+          : interval === "months"
+          ? `${month}`
+          : interval === "years"
+          ? `${year}`
+          : interval === "weeks"
+          ? `${DiaInicio} - ${DiaFin}`
+          : null;
 
-      dates.unshift(SemanaActual);
+      dates.unshift(intervaloActual);
     }
 
     return dates;
   }
 
-  const dates = generateLastNDays(10);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [timeFilterType, setTimeFilterType] = useState("days");
+
+  const dates = generateLastNIntervals(8, timeFilterType);
+  const [selectedDate, setSelectedDate] = useState(dates[dates.length - 1]);
+
+  const ITEM_WIDTH = {
+    days: 70,
+    months: 58,
+    years: 68,
+    weeks: 115,
+  };
 
   return (
     <FlatList
-      style={{ paddingVertical: 4.5, backgroundColor: "#FFC300" }}
+      initialScrollIndex={dates.length - 1}
+      getItemLayout={(data, index) => ({
+        length: ITEM_WIDTH[timeFilterType],
+        offset: ITEM_WIDTH[timeFilterType] * index,
+        index,
+      })}
+      style={{ paddingVertical: 4.5, backgroundColor: "#FFC300", height: 50 }}
       data={dates}
       horizontal={true}
       renderItem={({ item }) => (
