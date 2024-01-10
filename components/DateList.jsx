@@ -101,7 +101,13 @@ const DateList = () => {
         offset: ITEM_WIDTH[timeFilterType] * index,
         index,
       })}
-      style={{ paddingVertical: 4.5, backgroundColor: "#FFC300", height: 50 }}
+      style={{
+        paddingVertical: 6,
+        marginVertical: 5,
+        backgroundColor: "#FFC300",
+        height: 50,
+        flex: 1,
+      }}
       data={dates}
       horizontal={true}
       renderItem={({ item }) => (

@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
+    color: "#000",
   },
   textPressed: {
     fontSize: 12,

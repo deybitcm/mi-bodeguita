@@ -1,39 +1,37 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 
-const MovementsHeader = ({ filter, onTypeChange }) => {
+const MovementsHeader = ({ filter, onTypeChange, navigation, route }) => {
   return (
     <View style={styles.header}>
-      <View style={filter === "ventas" ? styles.buttonPressed : styles.button}>
-        <Pressable
-          style={styles.pressZone}
-          onPress={() => onTypeChange("ventas")}
-        >
-          <Text style={styles.text}>Ventas</Text>
-        </Pressable>
-      </View>
-      <View style={filter === "compras" ? styles.buttonPressed : styles.button}>
-        <Pressable
-          style={styles.pressZone}
-          onPress={() => onTypeChange("compras")}
-        >
-          <Text style={styles.text}>Gastos</Text>
-        </Pressable>
-      </View>
+      <Pressable
+        style={filter === "ventas" ? styles.buttonPressed : styles.button}
+        onPress={() => {
+          onTypeChange("ventas");
+          navigation.navigate("Revenues");
+        }}
+      >
+        <Text style={styles.text}>Ingresos</Text>
+      </Pressable>
+
+      <Pressable
+        style={filter === "compras" ? styles.buttonPressed : styles.button}
+        onPress={() => {
+          onTypeChange("compras");
+          navigation.navigate("Expenses");
+        }}
+      >
+        <Text style={styles.text}>Egresos</Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   header: {
+    paddingTop: 10,
     flexDirection: "row",
-    height: 50,
-  },
-  pressZone: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    height: 60,
   },
   button: {
     flex: 1,
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderBottomColor: "#000",
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
   },
   text: {
     fontSize: 16,

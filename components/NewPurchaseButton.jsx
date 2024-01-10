@@ -11,7 +11,7 @@ export default function NewPurchaseButton() {
           alignItems: "center",
         }}
       >
-        <AntDesign name="minuscircleo" size={22} color="white" />
+        <AntDesign name="minuscircleo" size={14} color="white" />
         <Text style={styles.textButton}>Nuevo gasto</Text>
       </View>
     </Pressable>
@@ -21,18 +21,19 @@ export default function NewPurchaseButton() {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#E74C3C",
-    borderRadius: 8,
+    borderRadius: 15,
     margin: 1,
     marginHorizontal: 5,
     paddingHorizontal: 5,
-    width: "80%",
-    height: "80%",
+    width: "90%",
+    height: "90%",
     alignItems: "center",
     justifyContent: "center",
   },
   textButton: {
-    paddingLeft: 5,
+    paddingLeft: 10,
     fontSize: 17,
     color: "#fff",
+    fontWeight: "bold",
   },
 });

@@ -2,7 +2,7 @@ import { View, Text, FlatList, RefreshControl } from "react-native";
 import React, { useState } from "react";
 import MovementListItem from "./MovementListItem.jsx";
 
-export default function SaleList({ items, onRefresh }) {
+export default function MovementList({ items, onRefresh }) {
   const [refreshing, setRefreshing] = useState(false);
 
   const handleRefresh = async () => {
