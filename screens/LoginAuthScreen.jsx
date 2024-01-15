@@ -10,12 +10,7 @@ export default function LoginAuthScreen({ route, navigation }) {
   const [counter, setCount] = useState(30);
   //const [otp, setOtp] = useState("");
   const userPhoneNumber = route.params?.phoneNumber || "123987654";
-
-  const createAlert = (message) => {
-    Alert.alert("Simple Alert", message, [{ text: "OK" }], {
-      cancelable: false,
-    });
-  };
+  const [trigger, setTrigger] = useState(false);
 
   //const [setUser] = useContext(AuthContext);
   const loginUser = async (otp) => {
@@ -26,7 +21,7 @@ export default function LoginAuthScreen({ route, navigation }) {
     //await AsyncStorage.setItem("user", JSON.stringify(user));
     //setUser(user);
 
-    return mensaje;
+    setTrigger(true);
   };
 
   useEffect(() => {
@@ -87,8 +82,8 @@ export default function LoginAuthScreen({ route, navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            const msg = loginUser(text);
-            if (msg) navigation.navigate("Store");
+            loginUser(text);
+            if (trigger) navigation.navigate("Store");
             else navigation.navigate("LoginPhone");
           }}
           theme={{
