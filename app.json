@@ -15,10 +15,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "config": {
-        "usesnonexemptencryption": false
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
@@ -35,6 +32,12 @@
         "projectId": "7a4b1e93-9f52-4d74-8ebe-b136ee4d7e87"
       }
     },
-    "owner": "deybit"
+    "owner": "deybit",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/7a4b1e93-9f52-4d74-8ebe-b136ee4d7e87"
+    }
   }
 }
