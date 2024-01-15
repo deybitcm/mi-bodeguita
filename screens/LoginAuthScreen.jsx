@@ -86,12 +86,10 @@ export default function LoginAuthScreen({ route, navigation }) {
           focusColor="#000"
           focusStickBlinkingDuration={500}
           hideStick={false}
-          onFilled={async (text) => {
-            const msg = await loginUser(text);
-            if (msg) {
-              createAlert(msg);
-              navigation.navigate("Store");
-            } else navigation.navigate("LoginPhone");
+          onFilled={(text) => {
+            const msg = loginUser(text);
+            if (msg) navigation.navigate("Store");
+            else navigation.navigate("LoginPhone");
           }}
           theme={{
             inputsContainerStyle: {
