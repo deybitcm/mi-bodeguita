@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 import { Bar } from "react-native-progress";
 
