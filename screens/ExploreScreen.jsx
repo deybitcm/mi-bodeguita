@@ -1,9 +1,12 @@
+
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+
 import React from "react";
 
 export default function ExploreScreen() {
   return (
     <View style={styles.container}>
+
       <View style={styles.elementContainer}>
         <Pressable>
           <Image
@@ -31,6 +34,7 @@ export default function ExploreScreen() {
         </Pressable>
         <Text style={styles.text}>Proveedores</Text>
       </View>
+
     </View>
   );
 }
@@ -53,5 +57,6 @@ const styles = StyleSheet.create({
   text: {
     paddingTop: 10,
     fontWeight: "bold",
+
   },
 });
