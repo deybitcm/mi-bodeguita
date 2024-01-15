@@ -20,13 +20,13 @@ export default function LoginAuthScreen({ route, navigation }) {
   //const [setUser] = useContext(AuthContext);
   const loginUser = async (otp) => {
     // funcion para obtener el hash del usuario
-    const response = await verifycode(userPhoneNumber, otp);
+    const { mensaje } = await verifycode(userPhoneNumber, otp);
 
     //const user = { userPhoneNumber };
     //await AsyncStorage.setItem("user", JSON.stringify(user));
     //setUser(user);
 
-    return response;
+    return mensaje;
   };
 
   useEffect(() => {
