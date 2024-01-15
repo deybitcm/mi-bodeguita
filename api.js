@@ -44,27 +44,28 @@ export const getPurchases = async () => {
 
 export const verifyinit = async (phone) => {
     try {
-        const query = await fetch(`${API}/usuarios/auth/verifyinit/${phone}`, {
+        const query = await fetch(`${API}/usuarios/auth/verifyinit/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            body: JSON.stringify({phone})
         });        
         return await query.json();
     }
     catch (error ) {
-        console.log({ruta: `${API}/usuarios/auth/verifyinit/${phone}`})
         console.log({error});
     }
 }
 
 export const verifycode = async (phone, code) => {
     try {
-        const query = await fetch(`${API}/usuarios/auth/verifycode/${phone}/${code}`, {
+        const query = await fetch(`${API}/usuarios/auth/verifycode/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            body: JSON.stringify({phone, code})
         });
         return await query.json();
     }
