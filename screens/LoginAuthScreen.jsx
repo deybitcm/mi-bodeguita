@@ -11,6 +11,12 @@ export default function LoginAuthScreen({ route, navigation }) {
   //const [otp, setOtp] = useState("");
   const userPhoneNumber = route.params?.phoneNumber || "123987654";
 
+  const createAlert = (message) => {
+    Alert.alert("Simple Alert", message, [{ text: "OK" }], {
+      cancelable: false,
+    });
+  };
+
   //const [setUser] = useContext(AuthContext);
   const loginUser = async (otp) => {
     // funcion para obtener el hash del usuario
@@ -81,7 +87,9 @@ export default function LoginAuthScreen({ route, navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={async (text) => {
-            if (await loginUser(text)) {
+            const msg = await loginUser(text);
+            if (msg) {
+              createAlert(msg);
               navigation.navigate("Store");
             } else navigation.navigate("LoginPhone");
           }}
