@@ -8,7 +8,7 @@ export default function InventoryScreen() {
   const [products, setProducts] = useState([]);
 
   const loadList = async () => {
-    const data = await getProducts();
+    const { data } = await getProducts();
     setProducts(data);
   };
 

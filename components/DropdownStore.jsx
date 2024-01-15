@@ -2,17 +2,11 @@ import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-const data = [
-  { label: "Tienda cedemarc", value: "1" },
-  { label: "20 Lucas", value: "2" },
-  { label: "30 Lucas", value: "3" },
-  { label: "Personal", value: "4" },
-  { label: "Mi Bodeguita", value: "5" },
-];
+import { useStores } from "../Hooks/StoresCustomHook.js";
 
 const DropdownComponent = () => {
   const [value, setValue] = useState(null);
+  const { stores } = useStores();
 
   return (
     <Dropdown
@@ -22,11 +16,11 @@ const DropdownComponent = () => {
       inputSearchStyle={styles.inputSearchStyle}
       iconStyle={styles.iconStyle}
       itemTextStyle={styles.itemTextStyle}
-      data={data}
+      data={stores}
       search
       maxHeight={300}
-      labelField="label"
-      valueField="value"
+      labelField="nombre"
+      valueField="id_tienda"
       placeholder="Selecciona una opción"
       searchPlaceholder="Buscar..."
       value={value}

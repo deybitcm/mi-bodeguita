@@ -7,8 +7,8 @@ export default function DateFilterButton() {
     <View
       style={{
         backgroundColor: "#FFC300",
-        height: 50,
         justifyContent: "center",
+        flex: 1,
       }}
     >
       <Pressable

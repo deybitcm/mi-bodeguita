@@ -27,6 +27,7 @@ export default function LoginAuthScreen({ navigation }) {
 
   const verify = async (phoneNumber) => {
     const response = await verifyinit(`+51${phoneNumber}`);
+    // const response = await verifyinit(`+51981790972`);
     const isCorrect = response.status == "pending" ? true : false;
     return isCorrect;
   };

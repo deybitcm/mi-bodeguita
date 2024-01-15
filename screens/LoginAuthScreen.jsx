@@ -9,16 +9,15 @@ import { verifycode } from "../api.js";
 export default function LoginAuthScreen({ route, navigation }) {
   const [counter, setCount] = useState(30);
   //const [otp, setOtp] = useState("");
-  const userPhoneNumber = route.params.phoneNumber;
+  const userPhoneNumber = route.params?.phoneNumber || "123987654";
 
   //const [setUser] = useContext(AuthContext);
   const loginUser = async (otp) => {
     // funcion para obtener el hash del usuario
     const response = await verifycode(`+51${userPhoneNumber}`, otp);
 
-    const user = { userPhoneNumber };
-
-    await AsyncStorage.setItem("user", JSON.stringify(user));
+    //const user = { userPhoneNumber };
+    //await AsyncStorage.setItem("user", JSON.stringify(user));
     //setUser(user);
 
     return response;
@@ -82,10 +81,9 @@ export default function LoginAuthScreen({ route, navigation }) {
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            const isCorrect = loginUser(text);
-            if (isCorrect) {
+            if (loginUser(text)) {
               navigation.navigate("Store");
-            }
+            } else console.log("bad request");
           }}
           theme={{
             inputsContainerStyle: {

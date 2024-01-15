@@ -102,10 +102,8 @@ const DateList = () => {
         index,
       })}
       style={{
-        paddingVertical: 6,
-        marginVertical: 5,
         backgroundColor: "#FFC300",
-        height: 50,
+        paddingVertical: 2,
         flex: 1,
       }}
       data={dates}

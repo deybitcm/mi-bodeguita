@@ -18,10 +18,16 @@ const DateFilterBar = ({ onFilterChange }) => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+        borderTopColor: "#000",
+        borderTopWidth: 1,
       }}
     >
-      <DateList />
-      <DateFilterButton />
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <DateList />
+      </View>
+      <View>
+        <DateFilterButton />
+      </View>
     </View>
   );
 };

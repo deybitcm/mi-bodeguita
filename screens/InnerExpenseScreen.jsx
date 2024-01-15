@@ -4,11 +4,11 @@ import RevenueList from "../components/MovementList.jsx";
 import { usePurchases } from "../Hooks/PurchasesCustomHook.js";
 
 export default function InnerExpenseScreen() {
-  const { sales, loadList } = usePurchases();
+  const { purchases, loadList } = usePurchases();
 
   return (
     <View style={styles.container}>
-      <RevenueList items={sales} onRefresh={loadList} />
+      <RevenueList items={purchases} onRefresh={loadList} />
     </View>
   );
 }

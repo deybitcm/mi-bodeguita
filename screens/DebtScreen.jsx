@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import DebtHeader from "../components/DebtHeader.jsx";
 import SaleAndPurchaseButtons from "../components/SaleAndPurchaseButtons.jsx";
+import InnerRevenueScreen from "./InnerRevenueScreen.jsx";
 
 export default function DebtScreen() {
   return (
@@ -11,7 +12,9 @@ export default function DebtScreen() {
       </View>
       <View style={styles.body}>
         <View style={styles.bodyData}>
-          <Text style={{ color: "#000" }}>Aqui va el listado de deudas</Text>
+          <View style={{ flex: 1, width: "100%" }}>
+            <InnerRevenueScreen />
+          </View>
         </View>
         <View style={styles.bodyFooter}>
           <SaleAndPurchaseButtons />
@@ -35,10 +38,11 @@ const styles = StyleSheet.create({
   body: {
     flex: 12,
     alignItems: "center",
+    width: "100%",
   },
   bodyData: {
+    width: "100%",
     flex: 7,
-    backgroundColor: "#fff",
     marginVertical: 6,
     alignItems: "center",
     justifyContent: "center",
@@ -46,10 +50,9 @@ const styles = StyleSheet.create({
   bodyFooter: {
     marginVertical: 6,
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 10,
-    marginVertical: 10,
+    paddingBottom: 10,
+    marginBottom: 10,
   },
 });

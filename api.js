@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = "http://192.168.1.46:3000/api";
+const API = "https://restapi-nodejs-mysql-production-bf21.up.railway.app/api";
 
 export const getClients = async () => {
     try {
@@ -66,6 +66,16 @@ export const verifycode = async (phone, code) => {
                 'Content-Type': 'application/json'
             },
         });
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+export const getStores = async () => {
+    try {
+        const query = await fetch(`${API}/tiendas`);
         return await query.json();
     }
     catch (error) {
