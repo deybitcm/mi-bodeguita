@@ -49,7 +49,7 @@ export const verifyinit = async (phone) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({phone})
+            body: JSON.stringify({celular: phone})
         });        
         return await query.json();
     }
@@ -65,7 +65,7 @@ export const verifycode = async (phone, code) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({phone, code})
+            body: JSON.stringify({celular: phone, codigo: code})
         });
         return await query.json();
     }
