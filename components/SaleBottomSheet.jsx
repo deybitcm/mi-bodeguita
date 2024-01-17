@@ -7,7 +7,10 @@ import {
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
-export default function SaleBottomSheet({ bottomSheetModalRef }) {
+export default function SaleBottomSheet({
+  bottomSaleSheetModalRef,
+  navigation,
+}) {
   const snapPoints = useMemo(() => [], []);
   const renderBackDrop = useCallback((props) => {
     return (
@@ -26,12 +29,12 @@ export default function SaleBottomSheet({ bottomSheetModalRef }) {
       backdropComponent={renderBackDrop}
       enableDynamicSizing={true}
       enablePanDownToClose={false}
-      ref={bottomSheetModalRef}
+      ref={bottomSaleSheetModalRef}
       index={0}
       snapPoints={snapPoints}
       onChange={handleSheetChanges}
-      handleStyle={{ backgroundColor: "#EAEAEA", borderRadius: 20 }}
       handleHeight={100}
+      handleStyle={{ backgroundColor: "#EAEAEA", borderRadius: 20 }}
       backgroundStyle={{ backgroundColor: "#EAEAEA" }}
       handleIndicatorStyle={{ backgroundColor: "#EAEAEA" }}
     >
@@ -43,7 +46,13 @@ export default function SaleBottomSheet({ bottomSheetModalRef }) {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Pressable style={styles.button}>
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              bottomSaleSheetModalRef.current?.close();
+              navigation.navigate("NewProductSale");
+            }}
+          >
             <View style={styles.imageContainer}>
               <Image
                 source={require("../assets/canasta.png")}
@@ -62,7 +71,13 @@ export default function SaleBottomSheet({ bottomSheetModalRef }) {
           </Pressable>
         </View>
         <View style={styles.buttonContainer}>
-          <Pressable style={styles.button}>
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              bottomSaleSheetModalRef.current?.close();
+              navigation.navigate("NewBasicSale");
+            }}
+          >
             <View style={styles.imageContainer}>
               <Image
                 source={require("../assets/billetes.png")}

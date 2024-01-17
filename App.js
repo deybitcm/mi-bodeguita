@@ -23,6 +23,8 @@ import LoginStoreScreen from './screens/LoginStoreScreen.jsx';
 import EmployeeScreen from './screens/EmployeeScreen.jsx';
 import ClientScreen from './screens/ClientScreen.jsx';
 import SupplierScreen from './screens/SupplierScreen.jsx';
+import NewBasicSaleScreen from './screens/NewBasicSaleScreen.jsx';
+import NewProductSaleScreen from './screens/NewProductSaleScreen.jsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,63 +46,81 @@ export default function App() {
     <AuthProvider value={{user, setUser}}>
       <GestureHandlerRootView style={{flex: 1}}>
         <BottomSheetModalProvider>
-      <NavigationContainer>
-      <Stack.Navigator screenOptions={
-        {
-          headerStyle: {
-            backgroundColor: '#fff',
-          },
-          headerShown: true,
-          headerTintColor: '#000',
-        }
-      }>
-        <Stack.Screen name="Main" component={MainScreen} options={{headerShown: false}} />
-        <Stack.Group>
-          <Stack.Screen name="Register" component={RegisterScreen} options={{headerTitle: ''}}/>
-          <Stack.Screen name="RegisterConfirm" component={RegisterAuthConfirmScreen} options={{headerTitle: ''}}/>
-          <Stack.Screen name="RegisterStore" component={RegisterStoreScreen} options={{headerTitle: ''}}/>
-        </Stack.Group>
-        <Stack.Group>
-          <Stack.Screen name="Login" component={LoginScreen} options={{headerTitle: ''}}/>
-          <Stack.Screen name="Phone" component={LoginPhoneScreen} options={{headerTitle: ''}}/>
-          <Stack.Screen name="Auth" component={LoginAuthScreen} options={{headerTitle: ''}}/>
-          <Stack.Screen name="Store" component={LoginStoreScreen}  
-            options={({ navigation}) => ({
-              headerTitle: '',
-            })}
-          />
-        </Stack.Group>
-        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Empleados" component={EmployeeScreen}
-          options={{
-            headerShown: true,
-            headerTitle: 'Empleados',
-            headerStyle: {
-              backgroundColor: '#FFC300',
-            },
-          }}
-        />
-        <Stack.Screen name="Clientes" component={ClientScreen}
-          options={{
-            headerShown: true,
-            headerTitle: 'Clientes',
-            headerStyle: {
-              backgroundColor: '#FFC300',
-            },
-          }}
-        />
-        <Stack.Screen name="Proveedores" component={SupplierScreen}
-          options={{
-            headerShown: true,
-            headerTitle: 'Proveedores',
-            headerStyle: {
-              backgroundColor: '#FFC300',
-            },
-          }}
-        />
-      </Stack.Navigator>
-      </NavigationContainer>
-      </BottomSheetModalProvider>
+          <NavigationContainer>
+          <Stack.Navigator screenOptions={
+            {
+              headerStyle: {
+                backgroundColor: '#fff',
+              },
+              headerShown: true,
+              headerTintColor: '#000',
+            }
+          }>
+            <Stack.Screen name="Main" component={MainScreen} options={{headerShown: false}} />
+            <Stack.Group>
+              <Stack.Screen name="Register" component={RegisterScreen} options={{headerTitle: ''}}/>
+              <Stack.Screen name="RegisterConfirm" component={RegisterAuthConfirmScreen} options={{headerTitle: ''}}/>
+              <Stack.Screen name="RegisterStore" component={RegisterStoreScreen} options={{headerTitle: ''}}/>
+            </Stack.Group>
+            <Stack.Group>
+              <Stack.Screen name="Login" component={LoginScreen} options={{headerTitle: ''}}/>
+              <Stack.Screen name="Phone" component={LoginPhoneScreen} options={{headerTitle: ''}}/>
+              <Stack.Screen name="Auth" component={LoginAuthScreen} options={{headerTitle: ''}}/>
+              <Stack.Screen name="Store" component={LoginStoreScreen}  
+                options={({ navigation}) => ({
+                  headerTitle: '',
+                })}
+              />
+            </Stack.Group>
+            <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+            <Stack.Screen name="Empleados" component={EmployeeScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Empleados',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+            <Stack.Screen name="Clientes" component={ClientScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Clientes',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+            <Stack.Screen name="Proveedores" component={SupplierScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Proveedores',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+            <Stack.Screen name="NewBasicSale" component={NewBasicSaleScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Nuevo Ingreso',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+            <Stack.Screen name="NewProductSale" component={NewProductSaleScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Nueva Venta',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+          </Stack.Navigator>
+          </NavigationContainer>
+        </BottomSheetModalProvider>
       </GestureHandlerRootView>
     </AuthProvider>
   );

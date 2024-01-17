@@ -3,8 +3,11 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
 export default function NewSaleButton({ onPress }) {
+  handlePress = () => {
+    onPress();
+  };
   return (
-    <Pressable style={styles.button} onPress={onPress}>
+    <Pressable style={styles.button} onPress={handlePress}>
       <View
         style={{
           flexDirection: "row",

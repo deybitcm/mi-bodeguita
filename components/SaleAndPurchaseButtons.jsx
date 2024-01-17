@@ -4,7 +4,7 @@ import NewPurchaseButton from "./NewPurchaseButton.jsx";
 import React, { useEffect, useCallback, useMemo, useRef } from "react";
 import SaleBottomSheet from "./SaleBottomSheet.jsx";
 
-export default function SaleAndPurchaseButtons() {
+export default function SaleAndPurchaseButtons({ navigation }) {
   const bottomSaleSheetModalRef = useRef(null);
   const handlePresentSaleModalPress = useCallback(() => {
     bottomSaleSheetModalRef.current?.present();
@@ -37,7 +37,10 @@ export default function SaleAndPurchaseButtons() {
       >
         <NewPurchaseButton />
       </View>
-      <SaleBottomSheet bottomSaleSheetModalRef={bottomSaleSheetModalRef} />
+      <SaleBottomSheet
+        bottomSaleSheetModalRef={bottomSaleSheetModalRef}
+        navigation={navigation}
+      />
     </View>
   );
 }

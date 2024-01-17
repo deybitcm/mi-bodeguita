@@ -59,7 +59,7 @@ export default function BalanceScreen({ navigation }) {
         </View>
       </View>
       <View style={{ flex: 3, paddingBottom: 20, paddingTop: 15 }}>
-        <SaleAndPurchaseButtons />
+        <SaleAndPurchaseButtons navigation={navigation} />
       </View>
     </View>
   );
