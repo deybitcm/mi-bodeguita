@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-export default function MovementListItem({ venta }) {
+export default function MovementListItem({ movimiento }) {
   function monthNumberToName(monthNumber) {
     const months = [
       "ene",
@@ -40,16 +40,16 @@ export default function MovementListItem({ venta }) {
     return `${day} de ${month} - ${hour}:${minutes} ${timeParaprhase}`;
   };
 
-  const monto = Number(venta.monto_total).toFixed(0);
+  const monto = Number(movimiento.monto_total).toFixed(0);
 
   return (
     <View style={styles.itemOfList}>
       <View>
         <View>
-          <Text>{venta.nombre}</Text>
+          <Text>{movimiento.nombre}</Text>
         </View>
         <View>
-          <Text>{tiparFecha(venta.fecha_movimiento)}</Text>
+          <Text>{tiparFecha(movimiento.fecha_movimiento)}</Text>
         </View>
       </View>
       <View>

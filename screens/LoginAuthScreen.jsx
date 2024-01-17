@@ -10,7 +10,9 @@ export default function LoginAuthScreen({ route, navigation }) {
   const [counter, setCount] = useState(30);
   //const [otp, setOtp] = useState("");
   const userPhoneNumber = route.params?.phoneNumber || "123987654";
-  const [trigger, setTrigger] = useState(false);
+  const trigger = useRef(false);
+
+  const isIncorrect = useRef(false);
 
   //const [setUser] = useContext(AuthContext);
   const loginUser = async (otp) => {
@@ -20,8 +22,11 @@ export default function LoginAuthScreen({ route, navigation }) {
     //const user = { userPhoneNumber };
     //await AsyncStorage.setItem("user", JSON.stringify(user));
     //setUser(user);
-
-    setTrigger(true);
+    if (mensaje) trigger.current = true;
+    else {
+      trigger.current = false;
+      isIncorrect.current = true;
+    }
   };
 
   useEffect(() => {
@@ -78,13 +83,18 @@ export default function LoginAuthScreen({ route, navigation }) {
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <OtpInput
           numberOfDigits={6}
-          focusColor="#000"
+          onTextChange={() => {
+            if (isIncorrect.current) isIncorrect.current = false;
+          }}
+          focusColor={isIncorrect.current ? "red" : "#000"}
           focusStickBlinkingDuration={500}
           hideStick={false}
           onFilled={(text) => {
-            loginUser(text);
-            if (trigger) navigation.navigate("Store");
-            else navigation.navigate("LoginPhone");
+            loginUser(text).then(() => {
+              if (trigger.current) {
+                navigation.navigate("Store");
+              }
+            });
           }}
           theme={{
             inputsContainerStyle: {
@@ -92,7 +102,7 @@ export default function LoginAuthScreen({ route, navigation }) {
               marginTop: 40,
             },
             pinCodeContainerStyle: {
-              borderColor: "#8F8F8F",
+              borderColor: isIncorrect.current ? "red" : "#8F8F8F",
               borderWidth: 1,
               borderRadius: 10,
             },

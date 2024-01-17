@@ -8,6 +8,7 @@ import BalanceScreen from "./BalanceScreen.jsx";
 import DebtScreen from "./DebtScreen.jsx";
 import InventoryScreen from "./InventoryScreen.jsx";
 import ExploreScreen from "./ExploreScreen.jsx";
+import ExploreStackScreen from "./ExploreStackScreen.jsx";
 
 // Header
 import HeaderBar from "../components/HeaderBar.jsx";
@@ -147,7 +148,7 @@ const HomeScreen = () => {
       />
       <Tab.Screen
         name="Explorar"
-        component={ExploreScreen}
+        component={ExploreStackScreen}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <Animated.View

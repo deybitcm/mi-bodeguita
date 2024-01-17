@@ -2,6 +2,20 @@ import axios from 'axios';
 
 const API = "https://restapi-nodejs-mysql-production-bf21.up.railway.app/api";
 
+// usar axios para hacer las peticiones
+
+// obtener clientes con axios
+
+export const getCustomers = async () => {
+    try {
+        const query = await axios.get(`${API}/personas/clientes`);
+        return query.data;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 export const getClients = async () => {
     try {
         const query = await fetch(`${API}/personas/clientes`);
@@ -12,15 +26,26 @@ export const getClients = async () => {
     }
 }
 
+// obtener productos con axios
 export const getProducts = async () => {
     try {
-        const query = await fetch(`${API}/productos`);
-        return await query.json();
+        const query = await axios.get(`${API}/productos`);
+        return query.data;
     }
     catch (error) {
         console.log(error);
     }
 }
+
+// export const getProducts = async () => {
+//     try {
+//         const query = await fetch(`${API}/productos`);
+//         return await query.json();
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
 
 export const getSales = async () => {
     try {
@@ -35,6 +60,26 @@ export const getSales = async () => {
 export const getPurchases = async () => {
     try {
         const query = await fetch(`${API}/movimientos/compras`);
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+export const getSuplliers = async () => {
+    try {
+        const query = await fetch(`${API}/personas/proveedores`);
+        return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+export const getEmployees = async () => {
+    try {
+        const query = await fetch(`${API}/personas/empleados`);
         return await query.json();
     }
     catch (error) {

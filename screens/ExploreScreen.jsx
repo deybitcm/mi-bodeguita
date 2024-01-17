@@ -1,14 +1,12 @@
-
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 
 import React from "react";
 
-export default function ExploreScreen() {
+export default function ExploreScreen({ navigation }) {
   return (
     <View style={styles.container}>
-
       <View style={styles.elementContainer}>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate("Empleados")}>
           <Image
             source={require("../assets/empleado.png")}
             style={styles.imageContainer}
@@ -17,7 +15,7 @@ export default function ExploreScreen() {
         <Text style={styles.text}>Empleados</Text>
       </View>
       <View style={styles.elementContainer}>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate("Clientes")}>
           <Image
             source={require("../assets/cliente.png")}
             style={styles.imageContainer}
@@ -26,7 +24,7 @@ export default function ExploreScreen() {
         <Text style={styles.text}>Clientes</Text>
       </View>
       <View style={styles.elementContainer}>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate("Proveedores")}>
           <Image
             source={require("../assets/proveedor.png")}
             style={styles.imageContainer}
@@ -34,7 +32,6 @@ export default function ExploreScreen() {
         </Pressable>
         <Text style={styles.text}>Proveedores</Text>
       </View>
-
     </View>
   );
 }
@@ -57,6 +54,5 @@ const styles = StyleSheet.create({
   text: {
     paddingTop: 10,
     fontWeight: "bold",
-
   },
 });
