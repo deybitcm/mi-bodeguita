@@ -1,9 +1,15 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import NewSaleButton from "./NewSaleButton.jsx";
 import NewPurchaseButton from "./NewPurchaseButton.jsx";
+import React, { useEffect, useCallback, useMemo, useRef } from "react";
+import SaleBottomSheet from "./SaleBottomSheet.jsx";
 
 export default function SaleAndPurchaseButtons() {
+  const bottomSaleSheetModalRef = useRef(null);
+  const handlePresentSaleModalPress = useCallback(() => {
+    bottomSaleSheetModalRef.current?.present();
+  }, []);
+
   return (
     <View
       style={{
@@ -20,7 +26,7 @@ export default function SaleAndPurchaseButtons() {
           justifyContent: "center",
         }}
       >
-        <NewSaleButton />
+        <NewSaleButton onPress={handlePresentSaleModalPress} />
       </View>
       <View
         style={{
@@ -31,6 +37,7 @@ export default function SaleAndPurchaseButtons() {
       >
         <NewPurchaseButton />
       </View>
+      <SaleBottomSheet bottomSaleSheetModalRef={bottomSaleSheetModalRef} />
     </View>
   );
 }

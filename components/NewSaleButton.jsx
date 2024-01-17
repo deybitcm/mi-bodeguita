@@ -2,9 +2,9 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function NewSaleButton() {
+export default function NewSaleButton({ onPress }) {
   return (
-    <Pressable style={styles.button}>
+    <Pressable style={styles.button} onPress={onPress}>
       <View
         style={{
           flexDirection: "row",
@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#229954",
     borderRadius: 15,
-    margin: 1,
-    marginHorizontal: 5,
-    paddingHorizontal: 5,
     width: "90%",
     height: "90%",
     alignItems: "center",

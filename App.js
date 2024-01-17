@@ -5,6 +5,8 @@ import AuthProvider from './components/AuthContext.jsx';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 //Pantallas
 import MainScreen from './screens/MainScreen.jsx';
@@ -40,6 +42,8 @@ export default function App() {
 
   return (
     <AuthProvider value={{user, setUser}}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <BottomSheetModalProvider>
       <NavigationContainer>
       <Stack.Navigator screenOptions={
         {
@@ -95,7 +99,9 @@ export default function App() {
           }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
+      </BottomSheetModalProvider>
+      </GestureHandlerRootView>
     </AuthProvider>
   );
 }

@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function ProductItem({ producto }) {
   const stockphrase =
@@ -19,8 +20,18 @@ export default function ProductItem({ producto }) {
           <Text style={styles.PriceText}>S/.{producto.precio}</Text>
         </View>
       </View>
-      <View>
-        <Text>Imagen</Text>
+      <View
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: "#9C9C9C",
+          alignItems: "center",
+          justifyContent: "center",
+          marginHorizontal: 5,
+          marginVertical: 5,
+        }}
+      >
+        <MaterialIcons name="photo-camera" size={25} color="white" />
       </View>
     </View>
   );

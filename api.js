@@ -139,3 +139,14 @@ export const getStoreTypes = async () => {
         console.log(error);
     }
 }
+
+// Obtener categorias con axios
+export const getCategories = async () => {
+    try {
+        const query = await axios.get(`${API}/categorias`);
+        return query.data;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}

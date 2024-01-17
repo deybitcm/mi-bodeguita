@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 // Headers
 import DateFilterBar from "../components/DateFilterBar.jsx";
@@ -16,12 +17,11 @@ import InnerExpenseScreen from "./InnerExpenseScreen.jsx";
 // Footer
 import SaleAndPurchaseButtons from "../components/SaleAndPurchaseButtons.jsx";
 
-// BottomSheet
-import SaleBottomSheet from "../components/SaleBottomSheet.jsx";
-
 const Stack = createNativeStackNavigator();
 
 export default function BalanceScreen({ navigation }) {
+  //Ref
+
   const [typeOfMovement, setTypeOfMovement] = useState("ventas"); // Valor inicial
 
   const handleTypeChange = (type) => {
@@ -30,10 +30,10 @@ export default function BalanceScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, justifyContent: "space-between" }}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 2.5 }}>
         <DateFilterBar onFilterChange={handleTypeChange} />
       </View>
-      <View style={{ flex: 12 }}>
+      <View style={{ flex: 30 }}>
         <View style={{ flex: 4 }}>
           <BalanceSummary />
         </View>
@@ -58,7 +58,7 @@ export default function BalanceScreen({ navigation }) {
           </View>
         </View>
       </View>
-      <View style={{ flex: 1, paddingBottom: 20, paddingTop: 15 }}>
+      <View style={{ flex: 3, paddingBottom: 20, paddingTop: 15 }}>
         <SaleAndPurchaseButtons />
       </View>
     </View>
