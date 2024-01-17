@@ -16,6 +16,9 @@ import InnerExpenseScreen from "./InnerExpenseScreen.jsx";
 // Footer
 import SaleAndPurchaseButtons from "../components/SaleAndPurchaseButtons.jsx";
 
+// BottomSheet
+import SaleBottomSheet from "../components/SaleBottomSheet.jsx";
+
 const Stack = createNativeStackNavigator();
 
 export default function BalanceScreen({ navigation }) {
