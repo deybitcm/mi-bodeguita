@@ -92,8 +92,9 @@ export default function LoginAuthScreen({ route, navigation }) {
           onFilled={(text) => {
             loginUser(text).then(() => {
               if (trigger.current) {
-                navigation.navigate("Store");
+                console.log(trigger.current);
               }
+              navigation.navigate("Store");
             });
           }}
           theme={{
