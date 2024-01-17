@@ -79,7 +79,7 @@ export const getSuplliers = async () => {
 
 export const getEmployees = async () => {
     try {
-        const query = await fetch(`${API}/personas/empleados`);
+        const query = await fetch(`${API}/personas/colaboradores`);
         return await query.json();
     }
     catch (error) {
@@ -123,6 +123,17 @@ export const getStores = async () => {
     try {
         const query = await fetch(`${API}/tiendas`);
         return await query.json();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+// Obtener tipos de tienda con axios
+export const getStoreTypes = async () => {
+    try {
+        const query = await axios.get(`${API}/tiendas/tipos`);
+        return query.data;
     }
     catch (error) {
         console.log(error);

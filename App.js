@@ -17,6 +17,11 @@ import LoginAuthScreen from './screens/LoginAuthScreen.jsx';
 import LoginPhoneScreen from './screens/LoginPhoneScreen.jsx';
 import LoginStoreScreen from './screens/LoginStoreScreen.jsx';
 
+//Explorador
+import EmployeeScreen from './screens/EmployeeScreen.jsx';
+import ClientScreen from './screens/ClientScreen.jsx';
+import SupplierScreen from './screens/SupplierScreen.jsx';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -62,6 +67,33 @@ export default function App() {
           />
         </Stack.Group>
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+        <Stack.Screen name="Empleados" component={EmployeeScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'Empleados',
+            headerStyle: {
+              backgroundColor: '#FFC300',
+            },
+          }}
+        />
+        <Stack.Screen name="Clientes" component={ClientScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'Clientes',
+            headerStyle: {
+              backgroundColor: '#FFC300',
+            },
+          }}
+        />
+        <Stack.Screen name="Proveedores" component={SupplierScreen}
+          options={{
+            headerShown: true,
+            headerTitle: 'Proveedores',
+            headerStyle: {
+              backgroundColor: '#FFC300',
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     </AuthProvider>

@@ -7,7 +7,11 @@ export default function EmployeeScreen() {
   const { persons, loadList } = usePersons({ option: 1 });
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       <PersonList items={persons} onRefresh={loadList} />
     </View>
   );

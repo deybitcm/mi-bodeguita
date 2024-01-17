@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
-import DropdownComponent from "../components/DropdownStore";
+import DropdownComponent from "../components/DropdownStoreTypes.jsx";
 import { Bar } from "react-native-progress";
 
 export default function RegisterStoreScreen({ navigation }) {

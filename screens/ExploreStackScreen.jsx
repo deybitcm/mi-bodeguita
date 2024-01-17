@@ -27,7 +27,13 @@ export default function ExploreStackScreen() {
           },
         }}
       >
-        <Stack.Screen name="Menu" component={ExploreScreen} />
+        <Stack.Screen
+          name="Menu"
+          component={ExploreScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="Empleados" component={EmployeeScreen} />
         <Stack.Screen name="Clientes" component={ClientScreen} />
         <Stack.Screen name="Proveedores" component={SupplierScreen} />

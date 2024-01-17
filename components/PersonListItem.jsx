@@ -12,7 +12,7 @@ export default function PersonListItem({ person }) {
         <Text>{person.nombre}</Text>
       </View>
       <View>
-        <Text>{person.celular}</Text>
+        <Text>{`+51 ${person.celular}`}</Text>
       </View>
     </View>
   );
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderWidth: 1,
     borderRadius: 10,
+    backgroundColor: "#fff",
   },
 });

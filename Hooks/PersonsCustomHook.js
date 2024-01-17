@@ -12,8 +12,6 @@ export const usePersons = ({option}) => {
       : option == 2 
         ? await getSuplliers() 
         : await getEmployees();
-
-    console.log(data)
     
     setPersons(data);
   };
