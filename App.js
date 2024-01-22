@@ -25,6 +25,7 @@ import ClientScreen from './screens/ClientScreen.jsx';
 import SupplierScreen from './screens/SupplierScreen.jsx';
 import NewBasicSaleScreen from './screens/NewBasicSaleScreen.jsx';
 import NewProductSaleScreen from './screens/NewProductSaleScreen.jsx';
+import BasketScreen from './screens/BasketScreen.jsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -113,6 +114,15 @@ export default function App() {
               options={{
                 headerShown: true,
                 headerTitle: 'Nueva Venta',
+                headerStyle: {
+                  backgroundColor: '#FFC300',
+                },
+              }}
+            />
+            <Stack.Screen name="Basket" component={BasketScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'Carrito',
                 headerStyle: {
                   backgroundColor: '#FFC300',
                 },

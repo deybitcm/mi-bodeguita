@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 // Headers
 import DateFilterBar from "../components/DateFilterBar.jsx";

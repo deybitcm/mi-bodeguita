@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import NewSaleButton from "./NewSaleButton.jsx";
 import NewPurchaseButton from "./NewPurchaseButton.jsx";
-import React, { useEffect, useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import SaleBottomSheet from "./SaleBottomSheet.jsx";
 
 export default function SaleAndPurchaseButtons({ navigation }) {

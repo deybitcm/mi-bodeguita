@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
-import InputField from "./InputField.jsx";
+import InputField from "./ProductInputField.jsx";
 import ProductCategoriesFilter from "./ProductCategoriesFilter.jsx";
 
 export default function InventoryBodyHeader() {
